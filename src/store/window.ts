@@ -26,7 +26,7 @@ const useWindowStore = create<StateType>()(
 				win.isOpen = true;
 				win.zIndex = state.nextZIndex;
 				win.data = data ?? win.data;
-				state.nextZIndex++;
+				++state.nextZIndex;
 			}),
 		closeWindow: (windowKey: string) =>
 			set((state: StateType) => {

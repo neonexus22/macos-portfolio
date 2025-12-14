@@ -63,6 +63,7 @@ const Dock = () => {
     const toggleApp = ({ id, canOpen }: { id: string, canOpen: boolean }) => {
         if (!canOpen) return;
         const window = windows[id as keyof typeof windows];
+
         if (!window) {
             console.error("Invalid window key.")
             return;
@@ -72,7 +73,6 @@ const Dock = () => {
         } else {
             openWindow(id);
         }
-        console.log("testing", windows)
     }
 
     return (
