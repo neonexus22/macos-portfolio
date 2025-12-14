@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/** biome-ignore-all lint/suspicious/noExplicitAny: <explanation> */
 const navLinks = [
 	{
 		id: 1,
@@ -504,3 +506,11 @@ const WINDOW_CONFIG = {
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
+
+export type WINDOW_CONFIG_KEY = keyof typeof WINDOW_CONFIG;
+
+export type WINDOW_CONFIG_VALUE = {
+	isOpen: boolean;
+	zIndex: number;
+	data: any;
+};
