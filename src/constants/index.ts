@@ -134,28 +134,21 @@ const socials = [
 		text: "Github",
 		icon: "/icons/github.svg",
 		bg: "#f4656b",
-		link: "https://github.com/JavaScript-Mastery-Pro",
+		link: "https://github.com/neonexus22",
 	},
 	{
 		id: 2,
-		text: "Platform",
-		icon: "/icons/atom.svg",
-		bg: "#4bcb63",
-		link: "https://jsmastery.com/",
+		text: "Github portfolio",
+		icon: "/icons/twitter.svg",
+		bg: "#ff866b",
+		link: "https://github.com/neonexus22/macos-portfolio",
 	},
 	{
 		id: 3,
-		text: "Twitter/X",
-		icon: "/icons/twitter.svg",
-		bg: "#ff866b",
-		link: "https://x.com/jsmasterypro",
-	},
-	{
-		id: 4,
 		text: "LinkedIn",
 		icon: "/icons/linkedin.svg",
 		bg: "#05b6f6",
-		link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+		link: "https://www.linkedin.com/in/neonexus/",
 	},
 ];
 
@@ -217,7 +210,7 @@ export {
 	gallery,
 };
 
-const WORK_LOCATION = {
+const WORK_LOCATION: LocationType = {
 	id: 1,
 	type: "work",
 	name: "Work",
@@ -385,7 +378,7 @@ const WORK_LOCATION = {
 	],
 };
 
-const ABOUT_LOCATION = {
+const ABOUT_LOCATION: LocationType = {
 	id: 2,
 	type: "about",
 	name: "About me",
@@ -399,7 +392,7 @@ const ABOUT_LOCATION = {
 			kind: "file",
 			fileType: "img",
 			position: "top-10 left-5",
-			imageUrl: "/images/adrian.jpg",
+			imageUrl: "/images/nishant.jpg",
 		},
 		{
 			id: 2,
@@ -408,7 +401,7 @@ const ABOUT_LOCATION = {
 			kind: "file",
 			fileType: "img",
 			position: "top-28 right-72",
-			imageUrl: "/images/adrian-2.jpg",
+			imageUrl: "/images/nishant.jpg",
 		},
 		{
 			id: 3,
@@ -417,7 +410,7 @@ const ABOUT_LOCATION = {
 			kind: "file",
 			fileType: "img",
 			position: "top-52 left-80",
-			imageUrl: "/images/adrian-3.jpeg",
+			imageUrl: "/images/nishant.jpeg",
 		},
 		{
 			id: 4,
@@ -427,7 +420,7 @@ const ABOUT_LOCATION = {
 			fileType: "txt",
 			position: "top-60 left-5",
 			subtitle: "Meet the Developer Behind the Code",
-			image: "/images/adrian.jpg",
+			image: "/images/nishant.jpg",
 			description: [
 				"Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
 				"I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
@@ -438,7 +431,7 @@ const ABOUT_LOCATION = {
 	],
 };
 
-const RESUME_LOCATION = {
+const RESUME_LOCATION: LocationType = {
 	id: 3,
 	type: "resume",
 	name: "Resume",
@@ -457,7 +450,7 @@ const RESUME_LOCATION = {
 	],
 };
 
-const TRASH_LOCATION = {
+const TRASH_LOCATION: LocationType = {
 	id: 4,
 	type: "trash",
 	name: "Trash",
@@ -485,11 +478,55 @@ const TRASH_LOCATION = {
 	],
 };
 
-export const locations = {
+export const locations: LocationsType = {
 	work: WORK_LOCATION,
 	about: ABOUT_LOCATION,
 	resume: RESUME_LOCATION,
 	trash: TRASH_LOCATION,
+};
+
+// File type definitions for better type safety
+export type FileType = "txt" | "url" | "img" | "fig" | "pdf";
+
+// Kind definitions for location items
+export type LocationKind = "folder" | "file";
+
+// Location type definitions for the main location categories
+export type LocationTypeKey = "work" | "about" | "resume" | "trash";
+
+// Enhanced type for location children (files and folders)
+export type LocationChildrenType = {
+	id: number;
+	name: string;
+	icon: string;
+	kind: string; // Keep as string for flexibility
+	fileType?: string; // Keep as string for flexibility
+	position?: string;
+	windowPosition?: string;
+	subtitle?: string;
+	image?: string;
+	description?: string[];
+	href?: string;
+	imageUrl?: string;
+	children?: LocationChildrenType[]; // For nested folders
+};
+
+// Enhanced type for main location objects
+export type LocationType = {
+	id: number;
+	type?: string;
+	name: string;
+	icon: string;
+	kind: string; // Keep as string for flexibility
+	children: LocationChildrenType[];
+};
+
+// Type for the locations object itself
+export type LocationsType = {
+	work: LocationType;
+	about: LocationType;
+	resume: LocationType;
+	trash: LocationType;
 };
 
 const INITIAL_Z_INDEX = 1000;
