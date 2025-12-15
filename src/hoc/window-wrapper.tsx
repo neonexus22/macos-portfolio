@@ -14,14 +14,11 @@ const WindowWrapper = (Component: any, windowKey: WINDOW_CONFIG_KEY) => {
         const { focusWindow, windows } = useWindowStore();
         const { isOpen, zIndex } = windows[windowKey];
 
-        console.log("testing safari", isOpen, windows)
-
         const ref = useRef<HTMLElement | null>(null);
 
         useGSAP(() => {
             const el = ref.current;
             if (!el || !isOpen) return;
-            console.log("testing ddddd", el)
             el.style.display = "block";
             gsap.fromTo(el, {
                 scale: 0.8,
